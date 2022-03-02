@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         val editor : SharedPreferences.Editor= pref.edit()
         editor.putBoolean("APP_START",status)
         editor.apply()
+
     }
     private fun stausBarTransparent(){
         if (Build.VERSION.SDK_INT >=21){
