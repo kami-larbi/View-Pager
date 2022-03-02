@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (!isFirsTimeAppStart()){
-            setAppStartStatus(true)
+            setAppStartStatus(false)
+            startActivity(Intent(this,AnotherActivity::class.java))
+            finish()
         }
         setContentView(R.layout.activity_main)
 
@@ -30,17 +32,17 @@ class MainActivity : AppCompatActivity() {
         actionBar!!.hide()
         stausBarTransparent()
         btn_next.setOnClickListener{
-            val currentPage:Int=viewPager.currentItem
+            val currentPage:Int=viewPager.currentItem+1
             if (currentPage<layouts.size){
-                viewPager.currentItem=currentPage+1
+                viewPager.currentItem=currentPage
             }else{
-                setAppStartStatus(true)
+                setAppStartStatus(false)
                 startActivity(Intent(this,AnotherActivity::class.java))
                 finish()
             }
         }
         btn_skip.setOnClickListener{
-            setAppStartStatus(true)
+            setAppStartStatus(false)
             startActivity(Intent(this,AnotherActivity::class.java))
             finish()
         }
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
             }
             override fun onPageSelected(position: Int){
-                if (position==layouts.size-1){
+                if (position==layouts.size -1){
                     btn_next.text="START"
                     btn_skip.visiblity=View.GONE
                 }else{
