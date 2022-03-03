@@ -9,8 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import android.view.*
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.viewpager.widget.ViewPager
 import java.text.FieldPosition
 import java.time.ZoneOffset
 
@@ -31,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         val actionBar: ActionBar?=supportActionBar
         actionBar!!.hide()
         stausBarTransparent()
+        val viewPager: ViewPager = findViewById(R.id.ViewPager)
+        val btn_next:Button = findViewById(R.id.btn_next)
         btn_next.setOnClickListener{
             val currentPage:Int=viewPager.currentItem+1
             if (currentPage<layouts.size){
@@ -41,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+        val btn_skip:Button = findViewById(R.id.btn_skip)
         btn_skip.setOnClickListener{
             setAppStartStatus(false)
             startActivity(Intent(this,AnotherActivity::class.java))
@@ -49,20 +55,25 @@ class MainActivity : AppCompatActivity() {
         layouts= intArrayOf(R.layout.slide_1,R.layout.slide_2,R.layout.slide_3)
         myAdapter= MyAdapter(layouts, applicationContext)
         viewPager.adapter = myAdapter
-        viewPager.addOnPagerChangeistner(object:ViewPager.OnPageChangeistener{
+        viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state:Int){
 
             }
-            override fun onPageSrolled(position: Int,positionOffset: Float,positionOffsetPixels: Int){
 
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
             }
+
             override fun onPageSelected(position: Int){
                 if (position==layouts.size -1){
                     btn_next.text="START"
-                    btn_skip.visiblity=View.GONE
+                    btn_skip.visibility=View.GONE
                 }else{
                     btn_next.text="NEXT"
-                    btn_skip.visiblity=View.VISIBLE
+                    btn_skip.visibility=View.VISIBLE
                 }
                 setDots(position)
             }
@@ -89,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private  fun setDots(page:Int){
+        val dotsLayout:LinearLayout = findViewById(R.id.dotsLayout)
         dotsLayout.removeAllViews()
         dotsTv = arrayOfNulls(layouts.size)
         for (i in dotsTv.indices){
