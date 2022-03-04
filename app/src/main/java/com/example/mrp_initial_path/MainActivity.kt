@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         actionBar!!.hide()
         stausBarTransparent()
         val viewPager: ViewPager = findViewById(R.id.ViewPager)
-        val btn_next:Button = findViewById(R.id.btn_next)
-        btn_next.setOnClickListener{
+        //val btn_next:Button = findViewById(R.id.btn_next)
+       /* btn_next.setOnClickListener{
             val currentPage:Int=viewPager.currentItem+1
             if (currentPage<layouts.size){
                 viewPager.currentItem=currentPage
@@ -45,14 +45,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this,AnotherActivity::class.java))
                 finish()
             }
-        }
-        val btn_skip:Button = findViewById(R.id.btn_skip)
-        btn_skip.setOnClickListener{
-            setAppStartStatus(false)
-            startActivity(Intent(this,AnotherActivity::class.java))
-            finish()
-        }
-        layouts= intArrayOf(R.layout.slide_1,R.layout.slide_2,R.layout.slide_3)
+        }*/
+
+        layouts= intArrayOf(R.layout.slide_1,R.layout.slide_2)
         myAdapter= MyAdapter(layouts, applicationContext)
         viewPager.adapter = myAdapter
         viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
@@ -69,11 +64,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int){
                 if (position==layouts.size -1){
-                    btn_next.text="START"
-                    btn_skip.visibility=View.GONE
+                    //btn_next.text="START"
+
                 }else{
-                    btn_next.text="NEXT"
-                    btn_skip.visibility=View.VISIBLE
+                    //btn_next.text="NEXT"
+                   // btn_next.text="Skip"
+
                 }
                 setDots(position)
             }

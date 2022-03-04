@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="start"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:fitsSystemWindows="true"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="blaabalb"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        />
+        android:gravity="start"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:text="Suggest me!"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="blaabalbblaabalbblaabalbblaabalbblaabalbblaabalbblaabalbblaabalb"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="If there is an idea that you want to work on your Graduate project, please fill out the required"
         android:fontFamily="sans-serif-medium"
         android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="25sp"
+        android:gravity="start"
+        android:textStyle="normal"
+        android:textSize="20sp"
         />
+
+    <EditText
+        android:id="@+id/ideaT"
+        android:hint="Idea Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textAutoCorrect"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <EditText
+        android:id="@+id/ideaD"
+        android:hint="Idea Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="text"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <EditText
+        android:id="@+id/ideaS"
+        android:hint=" Supervisor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textAutoCorrect"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <EditText
+        android:id="@+id/ideaE"
+        android:hint=" Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:text="Submit" />
+
 
 </LinearLayout>

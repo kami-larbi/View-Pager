@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mrp_initial_path</string>
+    <string name="label" />
 </resources>
