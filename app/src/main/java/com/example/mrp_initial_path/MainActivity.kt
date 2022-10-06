@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         actionBar!!.hide()
         stausBarTransparent()
         val viewPager: ViewPager = findViewById(R.id.ViewPager)
-        //val btn_next:Button = findViewById(R.id.btn_next)
-       /* btn_next.setOnClickListener{
+        val btn_next:Button = findViewById(R.id.btn_next)
+       btn_next.setOnClickListener{
             val currentPage:Int=viewPager.currentItem+1
             if (currentPage<layouts.size){
                 viewPager.currentItem=currentPage
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this,AnotherActivity::class.java))
                 finish()
             }
-        }*/
+        }
 
         layouts= intArrayOf(R.layout.slide_1,R.layout.slide_2)
         myAdapter= MyAdapter(layouts, applicationContext)
